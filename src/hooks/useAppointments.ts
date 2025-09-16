@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { appointmentsAPI } from '@/lib/api';
 import { mockAppointments } from '@/lib/mockData';
 import { getCurrentIST, formatDateIST, formatTimeIST, utcToIST } from '@/utils/timezone';
@@ -58,7 +58,7 @@ export const useAppointments = (filters?: AppointmentFilters) => {
     pages: 0
   });
 
-  const fetchAppointments = async () => {
+  const fetchAppointments = useCallback(async (newFilters?: any) => {
     try {
       setLoading(true);
       setError(null);
@@ -124,7 +124,7 @@ export const useAppointments = (filters?: AppointmentFilters) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters]);
 
   const createAppointment = async (appointmentData: any) => {
     try {
@@ -177,7 +177,7 @@ export const useAppointments = (filters?: AppointmentFilters) => {
 
   useEffect(() => {
     fetchAppointments();
-  }, [filters?.page, filters?.limit, filters?.patientSearch, filters?.createdDate]);
+  }, [filters?.page, filters?.limit, filters?.patientSearch, filters?.createdDate, fetchAppointments]);
 
   return {
     appointments,

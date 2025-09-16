@@ -102,7 +102,7 @@ export default function Sidebar() {
         }
       }
     })
-  }, [pathname, filteredMenuItems])
+  }, [pathname, filteredMenuItems, openMenus])
 
   const toggleSubmenu = (menuTitle: string) => {
     setOpenMenus(prev => 

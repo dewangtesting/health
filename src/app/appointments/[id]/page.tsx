@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import Sidebar from '@/components/layout/Sidebar'
 import Header from '@/components/layout/Header'
@@ -40,13 +40,7 @@ export default function ViewAppointment() {
   const [loading, setLoading] = useState(true)
   const [message, setMessage] = useState('')
 
-  useEffect(() => {
-    if (appointmentId) {
-      loadAppointment()
-    }
-  }, [appointmentId])
-
-  const loadAppointment = async () => {
+  const loadAppointment = useCallback(async () => {
     try {
       setLoading(true)
       setMessage('')
@@ -63,7 +57,13 @@ export default function ViewAppointment() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [appointmentId])
+
+  useEffect(() => {
+    if (appointmentId) {
+      loadAppointment()
+    }
+  }, [appointmentId, loadAppointment])
 
   const getStatusBadgeClass = (status: string) => {
     switch (status?.toUpperCase()) {

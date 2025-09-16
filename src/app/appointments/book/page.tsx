@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Sidebar from '@/components/layout/Sidebar'
 import Header from '@/components/layout/Header'
@@ -49,21 +49,7 @@ export default function BookAppointment() {
     symptoms: ''
   })
 
-  // Load doctors and patients on component mount
-  useEffect(() => {
-    loadDoctorsAndPatients()
-  }, [])
-
-  // Load available slots when doctor and date change
-  useEffect(() => {
-    if (formData.doctorId && formData.date) {
-      loadAvailableSlots()
-    } else {
-      setAvailableSlots([])
-    }
-  }, [formData.doctorId, formData.date])
-
-  const loadDoctorsAndPatients = async () => {
+  const loadDoctorsAndPatients = useCallback(async () => {
     try {
       setLoadingData(true)
       setMessage('')
@@ -88,9 +74,9 @@ export default function BookAppointment() {
     } finally {
       setLoadingData(false)
     }
-  }
+  }, [])
 
-  const loadAvailableSlots = async () => {
+  const loadAvailableSlots = useCallback(async () => {
     if (!formData.doctorId || !formData.date) return
     
     try {
@@ -103,7 +89,21 @@ export default function BookAppointment() {
     } finally {
       setLoadingSlots(false)
     }
-  }
+  }, [formData.doctorId, formData.date])
+
+  // Load doctors and patients on component mount
+  useEffect(() => {
+    loadDoctorsAndPatients()
+  }, [loadDoctorsAndPatients])
+
+  // Load available slots when doctor and date change
+  useEffect(() => {
+    if (formData.doctorId && formData.date) {
+      loadAvailableSlots()
+    } else {
+      setAvailableSlots([])
+    }
+  }, [formData.doctorId, formData.date, loadAvailableSlots])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target

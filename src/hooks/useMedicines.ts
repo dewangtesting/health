@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { medicinesAPI } from '@/lib/api'
 import { mockMedicines } from '@/lib/mockData'
 
@@ -60,7 +60,7 @@ export const useMedicines = (initialFilters = {}): UseMedicines => {
   const [totalPages, setTotalPages] = useState(1)
   const [filters, setFilters] = useState(initialFilters)
 
-  const fetchMedicines = async (newFilters = {}) => {
+  const fetchMedicines = useCallback(async (newFilters = {}) => {
     try {
       setLoading(true)
       setError(null)
@@ -90,7 +90,7 @@ export const useMedicines = (initialFilters = {}): UseMedicines => {
     } finally {
       setLoading(false)
     }
-  }
+  }, [filters, currentPage])
 
   const createMedicine = async (medicineData: any) => {
     try {
@@ -172,7 +172,7 @@ export const useMedicines = (initialFilters = {}): UseMedicines => {
   // Fetch medicines when component mounts or page changes
   useEffect(() => {
     fetchMedicines()
-  }, [currentPage])
+  }, [currentPage, fetchMedicines])
 
   return {
     medicines,

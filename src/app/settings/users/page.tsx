@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { usersAPI } from '@/lib/api'
 import { toast } from 'react-hot-toast'
@@ -29,7 +29,7 @@ export default function UsersPage() {
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
 
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     try {
       setLoading(true)
       const params = {
@@ -48,11 +48,11 @@ export default function UsersPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [currentPage, searchTerm, roleFilter])
 
   useEffect(() => {
     fetchUsers()
-  }, [currentPage, searchTerm, roleFilter])
+  }, [fetchUsers])
 
   const handleToggleStatus = async (userId: string) => {
     try {

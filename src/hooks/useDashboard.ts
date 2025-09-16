@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { dashboardAPI } from '@/lib/api'
 import { mockDashboardStats } from '@/lib/mockData'
 
@@ -32,7 +32,7 @@ export const useDashboard = (): UseDashboard => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const fetchStats = async () => {
+  const fetchStats = useCallback(async () => {
     try {
       setLoading(true)
       setError(null)
@@ -54,7 +54,7 @@ export const useDashboard = (): UseDashboard => {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
 
   const refreshStats = async () => {
     await fetchStats()
@@ -63,7 +63,7 @@ export const useDashboard = (): UseDashboard => {
   // Fetch stats when component mounts
   useEffect(() => {
     fetchStats()
-  }, [])
+  }, [fetchStats])
 
   return {
     stats,
