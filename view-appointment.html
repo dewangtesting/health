@@ -1,0 +1,297 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>:: I-Health:: View Appointment Details </title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
+    <!-- plugin css file  -->
+    <link rel="stylesheet" href="assets/plugin/datatables/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="assets/plugin/datatables/dataTables.bootstrap5.min.css">
+    <!-- project css file  -->
+    <link rel="stylesheet" href="assets/css/ihealth.style.min.css">
+    <!-- Google Code  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-264428387-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-264428387-1');
+    </script>
+</head>
+<body>
+
+<div id="ihealth-layout" class="theme-tradewind">
+
+    <!-- sidebar -->
+    <div class="sidebar px-4 py-4 py-md-5 me-0">
+        <div class="d-flex flex-column h-100">
+            <a href="index.html" class="mb-0 brand-icon">
+                <span class="logo-icon">
+                    <i class="icofont-heart-beat fs-2"></i>
+                </span>
+                <span class="logo-text">I-Health</span>
+            </a>
+            <!-- Menu: main ul -->
+
+            <ul class="menu-list flex-grow-1 mt-3">
+                <li><a class="m-link" href="index.html"><i class="icofont-ui-home fs-5"></i> <span>Dashboard</span></a></li>
+                <li class="collapsed">
+                    <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#menu-Appointment" href="#">
+                        <i class="icofont-calendar fs-5"></i> <span>Appointment</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse show" id="menu-Appointment">
+                            <li><a class="ms-link" href="calendar.html">Appointment Calendar</a></li>
+                            <li><a class="ms-link" href="appointment.html">Book Appointment</a></li>
+                            <li><a class="ms-link" href="update-appointment.html">Edit Appointment</a></li>
+                            <li><a class="ms-link active" href="view-appointment.html">View Appointment</a></li>
+                        </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Doctor" href="#">
+                        <i class="icofont-doctor-alt fs-5"></i>  <span>Doctor</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse" id="menu-Doctor">
+                            <li><a class="ms-link" href="doctor-all.html">All Doctors</a></li>
+                            <li><a class="ms-link" href="doctor-add.html">Add Doctor</a></li>
+                            <li><a class="ms-link" href="doctor-profile.html">Doctors Profile</a></li>
+                            <li><a class="ms-link" href="update-doctor-profile.html">Update Profile</a></li>
+                            <li><a class="ms-link" href="doctor-schedule.html">Doctor Schedule</a></li>
+                        </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Patient" href="#">
+                    <i class="icofont-blind fs-5"></i> <span>Patient</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Patient">
+                        <li><a class="ms-link" href="patient-list.html">Patient List</a></li>
+                        <li><a class="ms-link" href="patient-add.html">Add Patient</a></li>
+                        <li><a class="ms-link" href="patient-profile.html">Patient Profile</a></li>
+                        <li><a class="ms-link" href="patient-invoices.html">Patient Invoices</a></li>
+                    </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Pharmacy" href="#">
+                        <i class="icofont-pills fs-5"></i> <span>Pharmacy</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse" id="menu-Pharmacy">
+                            <li><a class="ms-link" href="medicine-list.html">Medicine List</a></li>
+                            <li><a class="ms-link" href="add-medicine.html">Add Medicine</a></li>
+                            <li><a class="ms-link" href="edit-medicine.html">Edit Medicine</a></li>
+                        </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Settings" href="#">
+                        <i class="icofont-gear fs-5"></i> <span>Settings</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Settings">
+                        <li><a class="ms-link" href="users.html">Users</a></li>
+                        <li><a class="ms-link" href="update-user-profile.html">Update Profile</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+            
+            <!-- Menu: menu collepce btn -->
+            <button type="button" class="btn btn-link sidebar-mini-btn text-light">
+                <span class="ms-2"><i class="icofont-bubble-right"></i></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- main body area -->
+    <div class="main px-lg-4 px-md-4">
+
+        <!-- Body: Header -->
+        <div class="header">
+            <nav class="navbar py-4">
+                <div class="container-xxl">
+
+                    <!-- header rightbar icon -->
+                    <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
+                        <div class="d-flex">
+                            <a class="nav-link text-primary collapsed" href="help.html" title="Get Help">
+                                <i class="icofont-info-square fs-5"></i>
+                            </a>
+                        </div>
+                        <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
+                            <div class="u-info me-2">
+                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">John Quinn</span></p>
+                                <small>Admin Profile</small>
+                            </div>
+                            <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/profile_av.png" alt="profile">
+                            </a>
+                        </div>
+                        <div class="setting ms-2">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#Settingmodal"><i class="icofont-gear-alt fs-5"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- menu toggler -->
+                    <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
+                        <span class="fa fa-bars"></span>
+                    </button>
+
+                    <!-- main menu Search-->
+                    <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
+                        <div class="input-group flex-nowrap input-group-lg">
+                            <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
+                            <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+        <!-- Body: Body -->
+        <div class="body d-flex py-3">
+            <div class="container-xxl">
+                <div class="row align-items-center">
+                    <div class="border-0 mb-4">
+                        <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                            <h3 class="fw-bold mb-0">Appointment Details</h3>
+                            <div class="btn-group" role="group">
+                                <a href="update-appointment.html" class="btn btn-primary btn-sm"><i class="icofont-edit me-2"></i>Edit</a>
+                                <button type="button" class="btn btn-outline-secondary btn-sm"><i class="icofont-print me-2"></i>Print</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Row end  -->
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Patient Information</h6>
+                                <span class="badge bg-success">Confirmed</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Full Name</label>
+                                        <p class="mb-0">John Doe</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Phone Number</label>
+                                        <p class="mb-0">+1234567890</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Email Address</label>
+                                        <p class="mb-0">john.doe@email.com</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Gender</label>
+                                        <p class="mb-0">Male</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Appointment Date</label>
+                                        <p class="mb-0">January 15, 2024</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Appointment Time</label>
+                                        <p class="mb-0">10:30 AM</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Reason for Visit</label>
+                                        <p class="mb-0">Dentist Checkup</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Assigned Doctor</label>
+                                        <p class="mb-0">DR. Mary</p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label fw-bold">Additional Notes</label>
+                                        <p class="mb-0">Regular dental checkup and cleaning appointment.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Appointment History</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-success"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Appointment Confirmed</h6>
+                                            <p class="timeline-text">Appointment has been confirmed by the hospital staff.</p>
+                                            <small class="text-muted">January 10, 2024 - 2:30 PM</small>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-primary"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Appointment Scheduled</h6>
+                                            <p class="timeline-text">New appointment scheduled with DR. Mary for dental checkup.</p>
+                                            <small class="text-muted">January 8, 2024 - 11:15 AM</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+</div>
+
+<style>
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -35px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 17px;
+    width: 2px;
+    height: calc(100% + 8px);
+    background-color: #dee2e6;
+}
+
+.timeline-title {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.timeline-text {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+</style>
+
+<!-- Jquery Core Js -->
+<script src="assets/bundles/libscripts.bundle.js"></script>
+
+<!-- Plugin Js-->
+<script src="assets/bundles/dataTables.bundle.js"></script>
+
+<!-- Jquery Page Js -->
+<script src="../js/template.js"></script>
+</body>
+</html>

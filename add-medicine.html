@@ -1,0 +1,201 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>:: I-Health:: Add Medicine </title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/ihealth.style.min.css">
+</head>
+<body>
+<div id="ihealth-layout" class="theme-tradewind">
+    <div class="sidebar px-4 py-4 py-md-5 me-0">
+        <div class="d-flex flex-column h-100">
+            <a href="index.html" class="mb-0 brand-icon">
+                <span class="logo-icon"><i class="icofont-heart-beat fs-2"></i></span>
+                <span class="logo-text">I-Health</span>
+            </a>
+            <ul class="menu-list flex-grow-1 mt-3">
+                <li><a class="m-link" href="index.html"><i class="icofont-ui-home fs-5"></i> <span>Dashboard</span></a></li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Appointment" href="#">
+                        <i class="icofont-calendar fs-5"></i> <span>Appointment</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse" id="menu-Appointment">
+                            <li><a class="ms-link" href="calendar.html">Appointment Calendar</a></li>
+                            <li><a class="ms-link" href="appointment.html">Book Appointment</a></li>
+                            <li><a class="ms-link" href="update-appointment.html">Edit Appointment</a></li>
+                            <li><a class="ms-link" href="view-appointment.html">View Appointment</a></li>
+                        </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Doctor" href="#">
+                        <i class="icofont-doctor-alt fs-5"></i>  <span>Doctor</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse" id="menu-Doctor">
+                            <li><a class="ms-link" href="doctor-all.html">All Doctors</a></li>
+                            <li><a class="ms-link" href="doctor-add.html">Add Doctor</a></li>
+                            <li><a class="ms-link" href="doctor-profile.html">Doctors Profile</a></li>
+                            <li><a class="ms-link" href="update-doctor-profile.html">Update Profile</a></li>
+                            <li><a class="ms-link" href="doctor-schedule.html">Doctor Schedule</a></li>
+                        </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Patient" href="#">
+                    <i class="icofont-blind fs-5"></i> <span>Patient</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Patient">
+                        <li><a class="ms-link" href="patient-list.html">Patient List</a></li>
+                        <li><a class="ms-link" href="patient-add.html">Add Patient</a></li>
+                        <li><a class="ms-link" href="patient-profile.html">Patient Profile</a></li>
+                        <li><a class="ms-link" href="patient-invoices.html">Patient Invoices</a></li>
+                    </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#menu-Pharmacy" href="#">
+                        <i class="icofont-pills fs-5"></i> <span>Pharmacy</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse show" id="menu-Pharmacy">
+                            <li><a class="ms-link" href="medicine-list.html">Medicine List</a></li>
+                            <li><a class="ms-link active" href="add-medicine.html">Add Medicine</a></li>
+                            <li><a class="ms-link" href="edit-medicine.html">Edit Medicine</a></li>
+                        </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Settings" href="#">
+                        <i class="icofont-gear fs-5"></i> <span>Settings</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Settings">
+                        <li><a class="ms-link" href="users.html">Users</a></li>
+                        <li><a class="ms-link" href="update-user-profile.html">Update Profile</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main px-lg-4 px-md-4">
+        <div class="header">
+            <nav class="navbar py-4">
+                <div class="container-xxl">
+                    <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
+                        <div class="setting ms-2">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#Settingmodal"><i class="icofont-gear-alt fs-5"></i></a>
+                        </div>
+                    </div>
+                    <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
+                        <div class="input-group flex-nowrap input-group-lg">
+                            <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
+                            <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="body d-flex py-3">
+            <div class="container-xxl">
+                <div class="row align-items-center">
+                    <div class="border-0 mb-4">
+                        <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                            <h3 class="fw-bold mb-0">Add Medicine</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Medicine Information</h6>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-md-6">
+                                            <label for="medicinename" class="form-label">Medicine Name</label>
+                                            <input type="text" class="form-control" id="medicinename" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="genericname" class="form-label">Generic Name</label>
+                                            <input type="text" class="form-control" id="genericname">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="category" class="form-label">Category</label>
+                                            <select class="form-select" id="category" required>
+                                                <option selected>Select Category</option>
+                                                <option value="pain-relief">Pain Relief</option>
+                                                <option value="antibiotic">Antibiotic</option>
+                                                <option value="anti-inflammatory">Anti-inflammatory</option>
+                                                <option value="diabetes">Diabetes</option>
+                                                <option value="blood-thinner">Blood Thinner</option>
+                                                <option value="vitamin">Vitamin</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="manufacturer" class="form-label">Manufacturer</label>
+                                            <input type="text" class="form-control" id="manufacturer" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="dosage" class="form-label">Dosage</label>
+                                            <input type="text" class="form-control" id="dosage" placeholder="e.g., 500mg">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="form" class="form-label">Form</label>
+                                            <select class="form-select" id="form">
+                                                <option selected>Select Form</option>
+                                                <option value="tablet">Tablet</option>
+                                                <option value="capsule">Capsule</option>
+                                                <option value="syrup">Syrup</option>
+                                                <option value="injection">Injection</option>
+                                                <option value="cream">Cream</option>
+                                                <option value="drops">Drops</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="stockquantity" class="form-label">Stock Quantity</label>
+                                            <input type="number" class="form-control" id="stockquantity" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="unitprice" class="form-label">Unit Price ($)</label>
+                                            <input type="number" step="0.01" class="form-control" id="unitprice" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="expirydate" class="form-label">Expiry Date</label>
+                                            <input type="date" class="form-control" id="expirydate" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="batchnumber" class="form-label">Batch Number</label>
+                                            <input type="text" class="form-control" id="batchnumber">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="description" class="form-label">Description</label>
+                                            <textarea class="form-control" id="description" rows="3" placeholder="Medicine description and usage instructions"></textarea>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="sideeffects" class="form-label">Side Effects</label>
+                                            <textarea class="form-control" id="sideeffects" rows="3" placeholder="Known side effects and precautions"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary mt-4">Add Medicine</button>
+                                    <button type="button" class="btn btn-secondary mt-4 ms-2">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/bundles/libscripts.bundle.js"></script>
+<script src="assets/js/template.js"></script>
+</body>
+</html>
