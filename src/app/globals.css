@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import I-Health specific styles */
+@import url('/assets/css/ihealth.style.min.css');
+
+/* Override Tailwind with I-Health theme */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Ensure proper Bootstrap integration */
+.theme-tradewind {
+  --bs-primary: #0d6efd;
+  --bs-success: #198754;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-info: #0dcaf0;
+}
+
+/* Custom utility classes */
+.text-big {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.small-14 {
+  font-size: 0.875rem;
+}
+
+.w280 {
+  width: 280px;
+}
+
+/* Sidebar and layout fixes */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 260px;
+  background: #fff;
+  border-right: 1px solid #dee2e6;
+  z-index: 1000;
+}
+
+.main {
+  margin-left: 260px;
+  min-height: 100vh;
+}
+
+/* Submenu animations */
+.sub-menu {
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: block !important;
+}
+
+.sub-menu.collapse {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sub-menu.collapse.show {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ensure submenu items are visible */
+.sub-menu li {
+  display: block;
+}
+
+.sub-menu .ms-link {
+  display: block;
+  padding: 8px 16px 8px 45px;
+  color: #6c757d;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.sub-menu .ms-link:hover {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+/* Arrow rotation */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.icofont-rounded-up {
+  transform: rotate(180deg);
+}
+
+/* Active menu styling */
+.m-link.active,
+.ms-link.active {
+  background-color: var(--bs-primary);
+  color: white !important;
+  border-radius: 6px;
+}
+
+/* Doctor card styles */
+.teacher-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.teacher-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.profile-av {
+  position: relative;
+}
+
+.w220 {
+  width: 220px;
+}
+
+.avatar.xl {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.about-info a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.about-info a:hover {
+  background-color: #e9ecef;
+  transform: scale(1.1);
+}
+
+.light-info-bg {
+  background-color: #e7f3ff;
+  color: #0066cc;
+  font-size: 0.75rem;
+}
+
+.small-11 {
+  font-size: 0.6875rem;
+}
+
+.teacher-info h6 {
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Row deck for equal height cards */
+.row-deck .col {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-deck .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.row-deck .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .main {
+    margin-left: 0;
+  }
+  
+  .sidebar.show {
+    transform: translateX(0);
+  }
+}

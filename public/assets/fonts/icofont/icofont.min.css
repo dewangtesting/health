@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'IcoFont';
+  src: url('fonts/icofont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.icofont-heart-beat:before {
+  content: "\ef5b";
+}
+
+.icofont-user:before {
+  content: "\ef99";
+}
+
+.icofont-lock:before {
+  content: "\ef4f";
+}
+
+.icofont-eye:before {
+  content: "\ef2e";
+}
+
+.icofont-eye-blocked:before {
+  content: "\ef2f";
+}
+
+.icofont-logout:before {
+  content: "\ef52";
+}
+
+.icofont-dashboard:before {
+  content: "\ef1a";
+}
+
+.icofont-patients:before {
+  content: "\ef6a";
+}
+
+.icofont-doctor:before {
+  content: "\ef1f";
+}
+
+.icofont-calendar:before {
+  content: "\ef0b";
+}
+
+.icofont-pills:before {
+  content: "\ef6c";
+}
+
+.icofont-plus:before {
+  content: "\ef6e";
+}
+
+.icofont-edit:before {
+  content: "\ef26";
+}
+
+.icofont-trash:before {
+  content: "\ef94";
+}
+
+.icofont-search:before {
+  content: "\ef7e";
+}
+
+.icofont-filter:before {
+  content: "\ef30";
+}
+
+[class^="icofont-"], [class*=" icofont-"] {
+  font-family: 'IcoFont' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
