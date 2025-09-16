@@ -1,0 +1,830 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>:: I-Health::  Doctor Profile </title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
+    <!-- plugin css file  -->
+    <link rel="stylesheet" href="assets/plugin/datatables/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="assets/plugin/datatables/dataTables.bootstrap5.min.css">
+    <!-- project css file  -->
+    <link rel="stylesheet" href="assets/css/ihealth.style.min.css">
+    <!-- Google Code  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-264428387-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-264428387-1');
+    </script>
+</head>
+<body>
+
+<div id="ihealth-layout" class="theme-tradewind">
+    
+   <!-- sidebar -->
+   <div class="sidebar px-4 py-4 py-md-5 me-0">
+    <div class="d-flex flex-column h-100">
+        <a href="index.html" class="mb-0 brand-icon">
+            <span class="logo-icon">
+                <i class="icofont-heart-beat fs-2"></i>
+            </span>
+            <span class="logo-text">I-Health</span>
+        </a>
+        <!-- Menu: main ul -->
+
+        <ul class="menu-list flex-grow-1 mt-3">
+            <li><a class="m-link" href="index.html"><i class="icofont-ui-home fs-5"></i> <span>Dashboard</span></a></li>
+            <li class="collapsed">
+                <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Appointment" href="#">
+                    <i class="icofont-calendar fs-5"></i> <span>Appointment</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Appointment">
+                        <li><a class="ms-link" href="calendar.html">Appointment Calendar</a></li>
+                        <li><a class="ms-link" href="appointment.html">Book Appointment</a></li>
+                        <li><a class="ms-link" href="update-appointment.html">Edit Appointment</a></li>
+                        <li><a class="ms-link" href="view-appointment.html">View Appointment</a></li>
+                    </ul>
+            </li>
+            <li class="collapsed">
+                <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#menu-Doctor" href="#">
+                    <i class="icofont-doctor-alt fs-5"></i>  <span>Doctor</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse show" id="menu-Doctor">
+                        <li><a class="ms-link" href="doctor-all.html">All Doctors</a></li>
+                        <li><a class="ms-link" href="doctor-add.html">Add Doctor</a></li>
+                        <li><a class="ms-link active" href="doctor-profile.html">Doctors Profile</a></li>
+                        <li><a class="ms-link" href="update-doctor-profile.html">Update Profile</a></li>
+                        <li><a class="ms-link" href="doctor-schedule.html">Doctor Schedule</a></li>
+                    </ul>
+            </li>
+            <li class="collapsed">
+                <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Patient" href="#">
+                <i class="icofont-blind fs-5"></i> <span>Patient</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                <!-- Menu: Sub menu ul -->
+                <ul class="sub-menu collapse" id="menu-Patient">
+                    <li><a class="ms-link" href="patient-list.html">Patient List</a></li>
+                    <li><a class="ms-link" href="patient-add.html">Add Patient</a></li>
+                    <li><a class="ms-link" href="patient-profile.html">Patient Profile</a></li>
+                    <li><a class="ms-link" href="patient-invoices.html">Patient Invoices</a></li>
+                </ul>
+            </li>
+            <li class="collapsed">
+                <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Pharmacy" href="#">
+                    <i class="icofont-pills fs-5"></i> <span>Pharmacy</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Pharmacy">
+                        <li><a class="ms-link" href="medicine-list.html">Medicine List</a></li>
+                        <li><a class="ms-link" href="add-medicine.html">Add Medicine</a></li>
+                        <li><a class="ms-link" href="edit-medicine.html">Edit Medicine</a></li>
+                    </ul>
+            </li>
+            <li class="collapsed">
+                <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Settings" href="#">
+                    <i class="icofont-gear fs-5"></i> <span>Settings</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Settings">
+                        <li><a class="ms-link" href="users.html">Users</a></li>
+                        <li><a class="ms-link" href="update-doctor-profile.html">Update Profile</a></li>
+                    </ul>
+                </li>
+        </ul>
+        
+        <!-- Menu: menu collepce btn -->
+        <button type="button" class="btn btn-link sidebar-mini-btn text-light">
+            <span class="ms-2"><i class="icofont-bubble-right"></i></span>
+        </button>
+    </div>
+    </div>
+
+    <!-- main body area -->
+    <div class="main px-lg-4 px-md-4">
+
+        <!-- Body: Header -->
+        <div class="header">
+            <nav class="navbar py-4">
+                <div class="container-xxl">
+    
+                    <!-- header rightbar icon -->
+                    <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
+                        <div class="d-flex">
+                            <a class="nav-link text-primary collapsed" href="help.html" title="Get Help">
+                                <i class="icofont-info-square fs-5"></i>
+                            </a>
+                        </div>
+                        <div class="dropdown notifications zindex-popover">
+                            <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="icofont-alarm fs-5"></i>
+                                <span class="pulse-ring"></span>
+                            </a>
+                            <div id="NotificationsDiv" class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-sm-end p-0 m-0">
+                                <div class="card border-0 w380">
+                                    <div class="card-header border-0 p-3">
+                                        <h5 class="mb-0 font-weight-light d-flex justify-content-between">
+                                            <span>Notifications</span>
+                                            <span class="badge text-white">06</span>
+                                        </h5>
+                                    </div>
+                                    <div class="tab-content card-body">
+                                        <div class="tab-pane fade show active">
+                                            <ul class="list-unstyled list mb-0">
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Chloe Walkerr</span> <small>2MIN</small></p>
+                                                            <span class="">Added Appointment 2021-06-19 <span class="badge bg-success">Book</span></span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <div class="avatar rounded-circle no-thumbnail">AH</div>
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Alan	Hill</span> <small>13MIN</small></p>
+                                                            <span class="">Lab sample collection</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Melanie	Oliver</span> <small>1HR</small></p>
+                                                            <span class="">Invoice Create Patient Room A-803</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar5.jpg" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Boris Hart</span> <small>13MIN</small></p>
+                                                            <span class="">Medicine Order to Medical</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar6.jpg" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Alan	Lambert</span> <small>1HR</small></p>
+                                                            <span class="">Leave Apply</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="py-2">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Zoe Wright</span> <small class="">1DAY</small></p>
+                                                            <span class="">Patient Food Order Room A-809</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <a class="card-footer text-center border-top-0" href="#"> View all notifications</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
+                            <div class="u-info me-2">
+                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">John Quinn</span></p>
+                                <small>Admin Profile</small>
+                            </div>
+                            <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/profile_av.png" alt="profile">
+                            </a>
+                            <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
+                                <div class="card border-0 w280">
+                                    <div class="card-body pb-0">
+                                        <div class="d-flex py-1">
+                                            <img class="avatar rounded-circle" src="assets/images/profile_av.png" alt="profile">
+                                            <div class="flex-fill ms-3">
+                                                <p class="mb-0"><span class="font-weight-bold">John	Quinn</span></p>
+                                                <small class="">Johnquinn@gmail.com</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div><hr class="dropdown-divider border-dark"></div>
+                                    </div>
+                                    <div class="list-group m-2 ">
+                                        <a href="virtual.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-video-chat fs-5 me-3"></i>I-Health Virtual</a>
+                                        <a href="patient-invoices.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-dollar fs-5 me-3"></i>Patient Invoices</a>
+                                        <a href="ui-elements/auth-signin.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Signout</a>
+                                        <div><hr class="dropdown-divider border-dark"></div>
+                                        <a href="ui-elements/auth-signup.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Add personal account</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="setting ms-2">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#Settingmodal"><i class="icofont-gear-alt fs-5"></i></a>
+                        </div>
+                    </div>
+    
+                    <!-- menu toggler -->
+                    <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
+                        <span class="fa fa-bars"></span>
+                    </button>
+    
+                    <!-- main menu Search-->
+                    <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
+                        <div class="input-group flex-nowrap input-group-lg">
+                            <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
+                            <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
+                            
+                        </div>
+                    </div>
+    
+                </div>
+            </nav>
+        </div>
+
+        <!-- Body: Body -->
+        <div class="body d-flex py-3">
+            <div class="container-xxl">
+
+                <div class="row g-3">
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="card teacher-card  mb-3">
+                            <div class="card-body d-flex teacher-fulldeatil">
+                                <div class="profile-teacher pe-xl-4 pe-md-2 pe-sm-4 pe-4 text-center w220">
+                                    <a href="#">
+                                        <img src="assets/images/lg/avatar3.jpg" alt="" class="avatar xl rounded-circle img-thumbnail shadow-sm">
+                                    </a>
+                                    <div class="about-info d-flex align-items-center mt-3 justify-content-center flex-column">
+                                        <span class="text-muted small">Doctor ID : PXL-0001</span>
+                                    </div>
+                                </div>
+                                <div class="teacher-info border-start ps-xl-4 ps-md-4 ps-sm-4 ps-4 w-100">
+                                    <h6  class="mb-0 mt-2  fw-bold d-block fs-6">Dr.Joan Wilson</h6>
+                                    <span class="py-1 fw-bold small-11 mb-0 mt-1 text-muted">Heart Surgeon,London, England</span>
+                                    <p class="mt-2">Duis felis ligula, pharetra at nisl sit amet, ullamcorper fringilla mi. Cras luctus metus non enim porttitor sagittis. Sed tristique scelerisque arcu id dignissim. Aenean sed erat ut est commodo tristique ac a metus. Praesent efficitur congue orci. Fusce in mi condimentum mauris maximus sodales. Quisque dictum est augue, vitae cursus quam finibus in. Nulla at tempus enim. Fusce sed mi et nibh laoreet consectetur nec vitae lacus.</p>
+                                    <div class="row g-2 pt-2">
+                                        <div class="col-xl-5">
+                                            <div class="d-flex align-items-center">
+                                                <i class="icofont-ui-touch-phone"></i>
+                                                <span class="ms-2">202-555-0174 </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-5">
+                                            <div class="d-flex align-items-center">
+                                                <i class="icofont-email"></i>
+                                                <span class="ms-2">joanwilson@gmail.com</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-5">
+                                            <div class="d-flex align-items-center">
+                                                <i class="icofont-birthday-cake"></i>
+                                                <span class="ms-2">19/03/1980</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-5">
+                                            <div class="d-flex align-items-center">
+                                                <i class="icofont-address-book"></i>
+                                                <span class="ms-2">2734  West Fork Street,EASTON.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Row End -->
+
+                <div class="row g-3 mb-3">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Resent Review</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row clearfix g-3">
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="feedback-info sticky-top">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h2 class=" display-6 fw-bold mb-0">4.5</h2>
+                                                    <small class="text-muted">based on 1,032 ratings</small>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="mb-2 me-3">
+                                                            <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                            <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                            <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                            <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                            <a href="#" class="rating-link active"><i class="bi bi-star-half text-warning"></i></a>
+                                                        </span>
+                                                    </div>
+                                                    <div class="progress-count mt-2">
+                                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                                            <h6 class="mb-0 fw-bold d-flex align-items-center">5<i class="bi bi-star-fill text-warning ms-1 small-11 pb-1"></i></h6>
+                                                            <span class="small text-muted">661</span>
+                                                        </div>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <div class="progress-bar light-success-bg" role="progressbar" style="width: 92%" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress-count mt-2">
+                                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                                            <h6 class="mb-0 fw-bold d-flex align-items-center">4<i class="bi bi-star-fill text-warning ms-1 small-11 pb-1"></i></h6>
+                                                            <span class="small text-muted">237</span>
+                                                        </div>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <div class="progress-bar bg-info-light" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress-count mt-2">
+                                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                                            <h6 class="mb-0 fw-bold d-flex align-items-center">3<i class="bi bi-star-fill text-warning ms-1 small-11 pb-1"></i></h6>
+                                                            <span class="small text-muted">76</span>
+                                                        </div>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <div class="progress-bar bg-lightyellow" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress-count mt-2">
+                                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                                            <h6 class="mb-0 fw-bold d-flex align-items-center">2<i class="bi bi-star-fill text-warning ms-1 small-11 pb-1"></i></h6>
+                                                            <span class="small text-muted">19</span>
+                                                        </div>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <div class="progress-bar light-danger-bg " role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress-count mt-2">
+                                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                                            <h6 class="mb-0 fw-bold d-flex align-items-center">1<i class="bi bi-star-fill text-warning ms-1 small-11 pb-1"></i></h6>
+                                                            <span class="small text-muted">39</span>
+                                                        </div>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <div class="progress-bar bg-careys-pink" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="customer-like mt-5">
+                                                        <h6 class="mb-0 fw-bold ">What Customers Like</h6>
+                                                        <ul class="list-group mt-3">
+                                                            <li class="list-group-item d-flex">
+                                                                <div class="number border-end pe-2 fw-bold">
+                                                                    <strong class="color-light-success">1</strong>
+                                                                </div>
+                                                                <div class="cs-text flex-fill ps-2">
+                                                                    <span>Fun Factor</span>
+                                                                </div>
+                                                                <div class="vote-text">
+                                                                    <span class="text-muted">72 votes</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex">
+                                                                <div class="number border-end pe-2 fw-bold">
+                                                                    <strong class="color-light-success">2</strong>
+                                                                </div>
+                                                                <div class="cs-text flex-fill ps-2">
+                                                                    <span>Great Value</span>
+                                                                </div>
+                                                                <div class="vote-text">
+                                                                    <span class="text-muted">52 votes</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex">
+                                                                <div class="number border-end pe-2 fw-bold">
+                                                                    <strong class="color-light-success">3</strong>
+                                                                </div>
+                                                                <div class="cs-text flex-fill ps-2">
+                                                                    <span>Doctor</span>
+                                                                </div>
+                                                                <div class="vote-text">
+                                                                    <span class="text-muted">35 votes</span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="customer-like mt-5">
+                                                        <h6 class="mb-0 fw-bold ">What Need Improvement</h6>
+                                                        <ul class="list-group mt-3">
+                                                            <li class="list-group-item d-flex">
+                                                                <div class="number border-end pe-2 fw-bold">
+                                                                    <strong class="color-careys-pink">1</strong>
+                                                                </div>
+                                                                <div class="cs-text flex-fill ps-2">
+                                                                    <span>Value for Money</span>
+                                                                </div>
+                                                                <div class="vote-text">
+                                                                    <span class="text-muted">12 votes</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex">
+                                                                <div class="number border-end pe-2 fw-bold">
+                                                                    <strong class="color-careys-pink">2</strong>
+                                                                </div>
+                                                                <div class="cs-text flex-fill ps-2">
+                                                                    <span>Customer service</span>
+                                                                </div>
+                                                                <div class="vote-text">
+                                                                    <span class="text-muted">8 votes</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex">
+                                                                <div class="number border-end pe-2 fw-bold">
+                                                                    <strong class="color-careys-pink">3</strong>
+                                                                </div>
+                                                                <div class="cs-text flex-fill ps-2">
+                                                                    <span>Helth Issue</span>
+                                                                </div>
+                                                                <div class="vote-text">
+                                                                    <span class="text-muted">2 votes</span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-12">
+                                        <ul class="list-unstyled mb-4">
+                                            <li class="card mb-2">
+                                                <div class="card-body p-lg-4 p-3">
+                                                    <div class="d-flex mb-3 pb-3 border-bottom flex-wrap">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <div class="flex-fill ms-3 text-truncate">
+                                                            <h6 class="mb-0"><span>Diane Fisher</span> <span class="text-muted small">450 Followers</span></h6>
+                                                            <span class="text-muted">3 hours ago</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-center">
+                                                            <span class="mb-2 me-3">
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-half text-warning"></i></a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="timeline-item-post">
+                                                        <h6 class="">Great experience as a first timer</h6>
+                                                        <p> barely waited to be helped when I checked in. The staff and Dr. (Name) were all very friendly and helpful. I especially loved how Dr. .Joan Wilson really took his time to explain my conditions with me as well as my treatment options. </p>
+                                                    </div>
+                                                </div>
+                                            </li> <!-- .Card End -->
+                                            <li class="card mb-2">
+                                                <div class="card-body p-lg-4 p-3">
+                                                    <div class="d-flex mb-3 pb-3 border-bottom flex-wrap">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        <div class="flex-fill ms-3 text-truncate">
+                                                            <h6 class="mb-0"><span>Andrea Gill</span> <span class="text-muted small">724 Followers</span></h6>
+                                                            <span class="text-muted">1 Day ago</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-center">
+                                                            <span class="mb-2 me-3">
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-half text-warning"></i></a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="timeline-item-post">
+                                                        <h6 class="">His excellent treatment,</h6>
+                                                        <p>investigative mind and ability to connect, you know where you stand immediately and what next steps look like.</p>
+                                                    </div>
+                                                </div>
+                                            </li> <!-- .Card End -->
+                                            <li class="card mb-2">
+                                                <div class="card-body p-lg-4 p-3">
+                                                    <div class="d-flex mb-3 pb-3 border-bottom flex-wrap">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <div class="flex-fill ms-3 text-truncate">
+                                                            <h6 class="mb-0"><span>Avery Bond</span> <span class="text-muted small">439 Followers</span></h6>
+                                                            <span class="text-muted">5 Day ago</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-center">
+                                                            <span class="mb-2 me-3">
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-fill text-warning"></i></a>
+                                                                <a href="#" class="rating-link active"><i class="bi bi-star-half text-warning"></i></a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="timeline-item-post">
+                                                        <h6 class=""> This practice is terrific</h6>
+                                                        <p>Dr.Joan Wilson combines expertise and a willingness to listen and discuss. She’s also an excellent surgeon. Also,</p>
+                                                        <div>
+                                                            <div class="d-flex mt-3 pt-3 border-top">
+                                                                <img class="avatar rounded-circle" src="assets/images/xs/avatar2.jpg" alt="">
+                                                                <div class="flex-fill ms-3 text-truncate">
+                                                                    <p class="mb-0"><span>Karen Clark</span> <small class="msg-time">5 Day ago</small></p>
+                                                                    <span class="text-muted">staff is very friendly and professional. I’ve never had to wait more than a few minutes when I arrive on time for an appointment.</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-4">
+                                                            <textarea class="form-control" placeholder="Replay"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li> <!-- .Card End -->
+                                        </ul>
+                                        <nav aria-label="...">
+                                            <ul class="pagination justify-content-end">
+                                              <li class="page-item disabled">
+                                                <span class="page-link">Previous</span>
+                                              </li>
+                                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                              <li class="page-item active" aria-current="page">
+                                                <span class="page-link">2</span>
+                                              </li>
+                                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                              <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                              </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div><!-- Row End -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Doctors Expertabilities</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="mt-3" id="incomeanalytics"></div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Health Survey</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="ac-line-transparent" id="apex-emplyoeeAnalytics"></div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Patient Survey</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="ac-line-transparent" id="apex-patient"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Row End -->
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Appointment</h6>
+                            </div>
+                            <div class="card-body">
+                                <table id="myProjectTable" class="table table-hover align-middle mb-0" style="width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Patient</th>
+                                            <th>Appointment</th>
+                                            <th>Last Visit</th>
+                                            <th>Age</th>
+                                            <th>Number</th>
+                                            <th>Address</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>P015</td>
+                                            <td>
+                                                <img src="assets/images/xs/avatar1.jpg" class="avatar rounded-circle me-2" alt="profile-image">
+                                                <span class="fw-bold">Alexander</span>
+                                            </td>
+                                            <td>Jan 11, 2021</td>
+                                            <td>Dec 25, 2020</td>
+                                            <td>23</td>
+                                            <td>404-447-6013</td>
+                                            <td>123 6th St. Melbourne, FL 32904</td>
+                                        </tr>
+                                        <tr>
+                                            <td>P016</td>
+                                            <td>
+                                                <img src="assets/images/xs/avatar2.jpg" class="avatar rounded-circle me-2" alt="profile-image">
+                                                <span class="fw-bold">Cameron</span>
+                                            </td>
+                                            <td>Jan 11, 2021</td>
+                                            <td>Dec 26, 2020</td>
+                                            <td>30</td>
+                                            <td>404-447-9696</td>
+                                            <td>123 6th St. Melbourne, FL 32904</td>
+                                        </tr>
+                                        <tr>
+                                            <td>P017</td>
+                                            <td>
+                                                <img src="assets/images/xs/avatar3.jpg" class="avatar rounded-circle me-2" alt="profile-image">
+                                                <span class="fw-bold">Alex lee</span>
+                                            </td>
+                                            <td>Jan 16, 2021</td>
+                                            <td>Dec 28, 2020</td>
+                                            <td>55</td>
+                                            <td>404-447-5858</td>
+                                            <td>123 6th St. Melbourne, FL 32904</td>
+                                        </tr>
+                                        <tr>
+                                            <td>P018</td>
+                                            <td>
+                                                <img src="assets/images/xs/avatar4.jpg" class="avatar rounded-circle me-2" alt="profile-image">
+                                                <span class="fw-bold">Richard</span>
+                                            </td>
+                                            <td>Jan 20, 2021</td>
+                                            <td>Dec 28, 2020</td>
+                                            <td>47</td>
+                                            <td>404-447-6013</td>
+                                            <td>123 6th St. Melbourne, FL 32904</td>
+                                        </tr>
+                                        <tr>
+                                            <td>P020</td>
+                                            <td>
+                                                <img src="assets/images/xs/avatar5.jpg" class="avatar rounded-circle me-2" alt="profile-image">
+                                                <span class="fw-bold">Stephen</span>
+                                            </td>
+                                            <td>Jan 20, 2021</td>
+                                            <td>Dec 30, 2020</td>
+                                            <td>26</td>
+                                            <td>404-447-2536</td>
+                                            <td>123 6th St. Melbourne, FL 32904</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Row End -->
+            </div>
+        </div>
+      
+        <!-- Modal Custom Settings-->
+        <div class="modal fade right" id="Settingmodal" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog  modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Custom Settings</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body custom_setting">
+                        <!-- Settings: Color -->
+                        <div class="setting-theme pb-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-color-bucket fs-4 me-2 text-primary"></i>Template Color Settings</h6>
+                            <ul class="list-unstyled row row-cols-3 g-2 choose-skin mb-2 mt-2">
+                                <li data-theme="indigo"><div class="indigo"></div></li>
+                                <li data-theme="tradewind" class="active"><div class="tradewind"></div></li>
+                                <li data-theme="monalisa"><div class="monalisa"></div></li>
+                                <li data-theme="blue"><div class="blue"></div></li>
+                                <li data-theme="cyan"><div class="cyan"></div></li>
+                                <li data-theme="green"><div class="green"></div></li>
+                                <li data-theme="orange"><div class="orange"></div></li>
+                                <li data-theme="blush"><div class="blush"></div></li>
+                                <li data-theme="red"><div class="red"></div></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-gradient py-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-paint fs-4 me-2 text-primary"></i>Sidebar Gradient</h6>
+                            <div class="form-check form-switch gradient-switch pt-2 mb-2">
+                                <input class="form-check-input" type="checkbox" id="CheckGradient">
+                                <label class="form-check-label" for="CheckGradient">Enable Gradient! ( Sidebar )</label>
+                            </div>
+                        </div>
+                        <!-- Settings: Template dynamics -->
+                        <div class="dynamic-block py-3">
+                            <ul class="list-unstyled choose-skin mb-2 mt-1">
+                                <li data-theme="dynamic"><div class="dynamic"><i class="icofont-paint me-2"></i> Click to Dyanmic Setting</div></li>
+                            </ul>
+                            <div class="dt-setting">
+                                <ul class="list-group list-unstyled mt-1">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label>Primary Color</label>
+                                        <button id="primaryColorPicker" class="btn bg-primary avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label>Secondary Color</label>
+                                        <button id="secondaryColorPicker" class="btn bg-secondary avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label class="text-muted">Chart Color 1</label>
+                                        <button id="chartColorPicker1" class="btn chart-color1 avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label class="text-muted">Chart Color 2</label>
+                                        <button id="chartColorPicker2" class="btn chart-color2 avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label class="text-muted">Chart Color 3</label>
+                                        <button id="chartColorPicker3" class="btn chart-color3 avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label class="text-muted">Chart Color 4</label>
+                                        <button id="chartColorPicker4" class="btn chart-color4 avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label class="text-muted">Chart Color 5</label>
+                                        <button id="chartColorPicker5" class="btn chart-color5 avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Settings: Font -->
+                        <div class="setting-font py-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-font fs-4 me-2 text-primary"></i> Font Settings</h6>
+                            <ul class="list-group font_setting mt-1">
+                                <li class="list-group-item py-1 px-2">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" name="font" id="font-poppins" value="font-poppins">
+                                        <label class="form-check-label" for="font-poppins">
+                                            Poppins Google Font
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item py-1 px-2">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" name="font" id="font-opensans" value="font-opensans" checked="">
+                                        <label class="form-check-label" for="font-opensans">
+                                            Open Sans Google Font
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item py-1 px-2">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" name="font" id="font-montserrat" value="font-montserrat">
+                                        <label class="form-check-label" for="font-montserrat">
+                                            Montserrat Google Font
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item py-1 px-2">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" name="font" id="font-mukta" value="font-mukta">
+                                        <label class="form-check-label" for="font-mukta">
+                                            Mukta Google Font
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Settings: Light/dark -->
+                        <div class="setting-mode py-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-layout fs-4 me-2 text-primary"></i>Contrast Layout</h6>
+                            <ul class="list-group list-unstyled mb-0 mt-1">
+                                <li class="list-group-item d-flex align-items-center py-1 px-2">
+                                    <div class="form-check form-switch theme-switch mb-0">
+                                        <input class="form-check-input" type="checkbox" id="theme-switch">
+                                        <label class="form-check-label" for="theme-switch">Enable Dark Mode!</label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-center py-1 px-2">
+                                    <div class="form-check form-switch theme-high-contrast mb-0">
+                                        <input class="form-check-input" type="checkbox" id="theme-high-contrast">
+                                        <label class="form-check-label" for="theme-high-contrast">Enable High Contrast</label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-center py-1 px-2">
+                                    <div class="form-check form-switch theme-rtl mb-0">
+                                        <input class="form-check-input" type="checkbox" id="theme-rtl">
+                                        <label class="form-check-label" for="theme-rtl">Enable RTL Mode!</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-start">
+                        <button type="button" class="btn btn-white border lift" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary lift">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+  
+</div>
+
+<!-- Jquery Core Js -->
+<script src="assets/bundles/libscripts.bundle.js"></script>
+
+
+<!-- Plugin Js-->
+<script src="assets/bundles/apexcharts.bundle.js"></script>
+<script src="assets/bundles/dataTables.bundle.js"></script>
+
+<!-- Jquery Page Js -->
+<script src="../js/template.js"></script>
+<script src="../js/page/doctor-profile.js"></script>
+ 
+</body>
+</html> 

@@ -1,0 +1,976 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>:: I-Health::  Patient Profile </title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
+    <!-- Plugin css file  -->
+    <link rel="stylesheet" href="assets/plugin/owlcarousel/owl.carousel.min.css">
+    <!-- project css file  -->
+    <link rel="stylesheet" href="assets/css/ihealth.style.min.css">
+    <!-- Google Code  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-264428387-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-264428387-1');
+    </script>
+</head>
+<body>
+
+<div id="ihealth-layout" class="theme-tradewind">
+    
+    <!-- sidebar -->
+    <div class="sidebar px-4 py-4 py-md-5 me-0">
+        <div class="d-flex flex-column h-100">
+            <a href="index.html" class="mb-0 brand-icon">
+                <span class="logo-icon">
+                    <i class="icofont-heart-beat fs-2"></i>
+                </span>
+                <span class="logo-text">I-Health</span>
+            </a>
+            <!-- Menu: main ul -->
+
+            <ul class="menu-list flex-grow-1 mt-3">
+                <li><a class="m-link" href="index.html"><i class="icofont-ui-home fs-5"></i> <span>Dashboard</span></a></li>
+               
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Appointment" href="#">
+                        <i class="icofont-calendar fs-5"></i> <span>Appointment</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse" id="menu-Appointment">
+                            <li><a class="ms-link" href="calendar.html">Appointment Calendar</a></li>
+                            <li><a class="ms-link" href="appointment.html">Book Appointment</a></li>
+                            <li><a class="ms-link" href="update-appointment.html">Edit Appointment</a></li>
+                            <li><a class="ms-link" href="view-appointment.html">View Appointment</a></li>
+                        </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Doctor" href="#">
+                        <i class="icofont-doctor-alt fs-5"></i>  <span>Doctor</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse" id="menu-Doctor">
+                            <li><a class="ms-link" href="doctor-all.html">All Doctors</a></li>
+                            <li><a class="ms-link" href="doctor-add.html">Add Doctor</a></li>
+                            <li><a class="ms-link" href="doctor-profile.html">Doctors Profile</a></li>
+                            <li><a class="ms-link" href="update-doctor-profile.html">Update Profile</a></li>
+                            <li><a class="ms-link" href="doctor-schedule.html">Doctor Schedule</a></li>
+                        </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#menu-Patient" href="#">
+                    <i class="icofont-blind fs-5"></i> <span>Patient</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse show" id="menu-Patient">
+                        <li><a class="ms-link" href="patient-list.html">Patient List</a></li>
+                        <li><a class="ms-link" href="patient-add.html">Add Patient</a></li>
+                        <li><a class="ms-link active" href="patient-profile.html">Patient Profile</a></li>
+                        <li><a class="ms-link" href="patient-invoices.html">Patient Invoices</a></li>
+                    </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Pharmacy" href="#">
+                        <i class="icofont-pills fs-5"></i> <span>Pharmacy</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse" id="menu-Pharmacy">
+                            <li><a class="ms-link" href="medicine-list.html">Medicine List</a></li>
+                            <li><a class="ms-link" href="add-medicine.html">Add Medicine</a></li>
+                            <li><a class="ms-link" href="edit-medicine.html">Edit Medicine</a></li>
+                        </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Settings" href="#">
+                        <i class="icofont-gear fs-5"></i> <span>Settings</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Settings">
+                        <li><a class="ms-link" href="users.html">Users</a></li>
+                        <li><a class="ms-link" href="update-user-profile.html">Update Profile</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Menu: menu collepce btn -->
+            <button type="button" class="btn btn-link sidebar-mini-btn text-light">
+                <span class="ms-2"><i class="icofont-bubble-right"></i></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- main body area -->
+    <div class="main px-lg-4 px-md-4">
+
+        <!-- Body: Header -->
+        <div class="header">
+            <nav class="navbar py-4">
+                <div class="container-xxl">
+    
+                    <!-- header rightbar icon -->
+                    <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
+                        <div class="d-flex">
+                            <a class="nav-link text-primary collapsed" href="help.html" title="Get Help">
+                                <i class="icofont-info-square fs-5"></i>
+                            </a>
+                        </div>
+                        <div class="dropdown notifications zindex-popover">
+                            <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="icofont-alarm fs-5"></i>
+                                <span class="pulse-ring"></span>
+                            </a>
+                            <div id="NotificationsDiv" class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-sm-end p-0 m-0">
+                                <div class="card border-0 w380">
+                                    <div class="card-header border-0 p-3">
+                                        <h5 class="mb-0 font-weight-light d-flex justify-content-between">
+                                            <span>Notifications</span>
+                                            <span class="badge text-white">06</span>
+                                        </h5>
+                                    </div>
+                                    <div class="tab-content card-body">
+                                        <div class="tab-pane fade show active">
+                                            <ul class="list-unstyled list mb-0">
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Chloe Walkerr</span> <small>2MIN</small></p>
+                                                            <span class="">Added Appointment 2021-06-19 <span class="badge bg-success">Book</span></span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <div class="avatar rounded-circle no-thumbnail">AH</div>
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Alan	Hill</span> <small>13MIN</small></p>
+                                                            <span class="">Lab sample collection</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Melanie	Oliver</span> <small>1HR</small></p>
+                                                            <span class="">Invoice Create Patient Room A-803</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar5.jpg" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Boris Hart</span> <small>13MIN</small></p>
+                                                            <span class="">Medicine Order to Medical</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar6.jpg" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Alan	Lambert</span> <small>1HR</small></p>
+                                                            <span class="">Leave Apply</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="py-2">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Zoe Wright</span> <small class="">1DAY</small></p>
+                                                            <span class="">Patient Food Order Room A-809</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <a class="card-footer text-center border-top-0" href="#"> View all notifications</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
+                            <div class="u-info me-2">
+                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">John Quinn</span></p>
+                                <small>Admin Profile</small>
+                            </div>
+                            <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/profile_av.png" alt="profile">
+                            </a>
+                            <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
+                                <div class="card border-0 w280">
+                                    <div class="card-body pb-0">
+                                        <div class="d-flex py-1">
+                                            <img class="avatar rounded-circle" src="assets/images/profile_av.png" alt="profile">
+                                            <div class="flex-fill ms-3">
+                                                <p class="mb-0"><span class="font-weight-bold">John	Quinn</span></p>
+                                                <small class="">Johnquinn@gmail.com</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div><hr class="dropdown-divider border-dark"></div>
+                                    </div>
+                                    <div class="list-group m-2 ">
+                                        <a href="virtual.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-video-chat fs-5 me-3"></i>I-Health Virtual</a>
+                                        <a href="patient-invoices.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-dollar fs-5 me-3"></i>Patient Invoices</a>
+                                        <a href="ui-elements/auth-signin.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Signout</a>
+                                        <div><hr class="dropdown-divider border-dark"></div>
+                                        <a href="ui-elements/auth-signup.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Add personal account</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="setting ms-2">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#Settingmodal"><i class="icofont-gear-alt fs-5"></i></a>
+                        </div>
+                    </div>
+    
+                    <!-- menu toggler -->
+                    <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
+                        <span class="fa fa-bars"></span>
+                    </button>
+    
+                    <!-- main menu Search-->
+                    <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
+                        <div class="input-group flex-nowrap input-group-lg">
+                            <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
+                            <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+    
+                </div>
+            </nav>
+        </div>
+
+        <!-- Body: Body -->
+        <div class="body d-flex py-3">
+            <div class="container-xxl">
+                <div class="row align-items-center">
+                    <div class="border-0 mb-4">
+                        <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                            <h3 class="fw-bold mb-0">Patient Overview</h3>
+                        </div>
+                    </div>
+                </div> <!-- Row end  -->
+                <div class="row g-3 mb-3">
+                    <div class="col-xl-4 col-lg-12 col-md-12">
+                        <div class="card teacher-card mb-3 flex-column">
+                            <div class="card-body d-flex teacher-fulldeatil flex-column">
+                                <div class="profile-teacher text-center w220 mx-auto">
+                                    <a href="#">
+                                        <img src="assets/images/lg/avatar4.jpg" alt="" class="avatar xl rounded-circle img-thumbnail shadow-sm">
+                                    </a>
+                                    <div class="about-info d-flex align-items-center mt-3 justify-content-center flex-column">
+                                        <span class="text-muted small">Patient ID : PXL-0001</span>
+                                    </div>
+                                </div>
+                                <div class="teacher-info   w-100">
+                                    <h6  class="mb-0 mt-2  fw-bold d-block fs-6 text-center">Adrian	Allan</h6>
+                                    <span class="py-1 fw-bold small-11 mb-0 mt-1 text-muted text-center mx-auto d-block">24 years, California</span>
+                                    <p class="mt-2">Duis felis ligula, pharetra at nisl sit amet, ullamcorper fringilla mi. Cras luctus metus non enim porttitor sagittis. Sed tristique scelerisque arcu id dignissim. Aenean sed erat ut est commodo tristique ac a metus. Praesent efficitur congue orci. Fusce in mi condimentum mauris maximus sodales. Quisque dictum est augue, vitae cursus quam finibus in. Nulla at tempus enim. Fusce sed mi et nibh laoreet consectetur nec vitae lacus.</p>
+                                    <div class="row g-2 pt-2">
+                                        <div class="col-xl-12">
+                                            <div class="d-flex align-items-center">
+                                                <i class="icofont-ui-touch-phone"></i>
+                                                <span class="ms-2">202-555-0174 </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class="d-flex align-items-center">
+                                                <i class="icofont-email"></i>
+                                                <span class="ms-2">joanwilson@gmail.com</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class="d-flex align-items-center">
+                                                <i class="icofont-birthday-cake"></i>
+                                                <span class="ms-2">19/03/1980</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class="d-flex align-items-center">
+                                                <i class="icofont-address-book"></i>
+                                                <span class="ms-2">2734  West Fork Street,EASTON 02334.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Calorie Counter</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-end text-center">
+                                    <div class="p-2">
+                                        <h6 class="mb-0 fw-bold">1790 Kcal</h6>
+                                        <span class="text-muted">Eaten</span>
+                                    </div>
+                                    <div class="p-2 ms-4">
+                                        <h6 class="mb-0 fw-bold">450 Kcal</h6>
+                                        <span class="text-muted">Burned</span>
+                                    </div>
+                                </div>
+                                <div id="apex-circle-gradient"></div>
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="mb-3 d-block">Fat</span>
+                                        <div class="progress-bar  bg-secondary" role="progressbar" style="width: 55%; height: 5px;"></div>
+                                        <span class="mt-2 d-block text-secondary">24g left</span>
+                                    </div>
+                                    <div class="col">
+                                        <span class="mb-3 d-block">Carbs</span>
+                                        <div class="progress-bar  bg-primary" role="progressbar" style="width: 60%; height: 5px;"></div>
+                                        <span class="mt-2 d-block text-primary">78g left</span>
+                                    </div>
+                                    <div class="col">
+                                        <span class="mb-3 d-block">Protein</span>
+                                        <div class="progress-bar  bg-lavender-purple" role="progressbar" style="width: 70%; height: 5px;"></div>
+                                        <span class="mt-2 d-block color-lavender-purple">28 left</span> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Payment Method</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="payment-info">
+                                    <h5 class="payment-name text-muted"><i class="icofont-visa-alt fs-3"></i> Visa *******7548</h5>
+                                    <span>Next billing charged $48</span>
+                                    <br>
+                                    <em class="text-muted">Autopay on July 20, 2021</em>
+                                    <a href="javascript:void(0);" class="edit-payment-info text-secondary">Edit Payment Info</a>
+                                </div>
+                                <p class="mt-3"><a href="javascript:void(0);" class="btn btn-primary"> Add Payment Info</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-12 col-md-12">
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Documents </h6>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#depadd">Add Documents</button>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-4">
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 bg-primary">
+                                                <i class="icofont-surgeon fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">Visit Surgeon</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar1.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Alexander</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 light-danger-bg">
+                                                <i class="icofont-brain-alt fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">MRI Brain</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar12.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Peter</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 bg-secondary">
+                                                <i class="icofont-ui-cut fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">ECG</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar2.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Mary</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 bg-warning">
+                                                <i class="icofont-xray fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">XRAY</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar3.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Zoe</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 bg-danger">
+                                                <i class="icofont-laboratory fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">Basic Metabolic</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar4.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Lily</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 bg-lavender-purple">
+                                                <i class="icofont-injection-syringe fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">Injection Syringe</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar5.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Grace</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 bg-lightblue">
+                                                <i class="icofont-heartbeat fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">Heartbeat Check</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar6.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Jasmine</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 bg-lightgreen">
+                                                <i class="icofont-pills fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">Pain Pills</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar7.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Diana</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 bg-lightblue">
+                                                <i class="icofont-dna fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">DNA Test</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar8.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Richard</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 bg-santa-fe">
+                                                <i class="icofont-blood-test fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">Blood Test</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar9.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Adrian</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 bg-careys-pink">
+                                                <i class="icofont-thermometer fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">Temperature Test</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar10.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Sally</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="patientinfo-file shadow-sm p-3">
+                                            <div class="patient-did p-2 light-orange-bg">
+                                                <i class="icofont-tooth fs-4 text-white"></i>
+                                            </div>
+                                            <span class="text-end float-end small">14.05</span>
+                                            <h6 class="fw-bold mt-4 pt-4 mb-4">Artificial Teeth Set</h6>
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/images/xs/avatar11.jpg" class="avatar   rounded-circle me-2" alt="profile-image">
+                                                <span class="ms-1 small">DR.Sarah</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Medical Information</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="icofont-heart-beat text-primary me-2"></i>
+                                            <div>
+                                                <span class="text-muted small">Blood Pressure</span>
+                                                <h6 class="mb-0 fw-bold">120/80 mmHg</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="icofont-weight-scale text-primary me-2"></i>
+                                            <div>
+                                                <span class="text-muted small">Weight</span>
+                                                <h6 class="mb-0 fw-bold">72 kg</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="icofont-sugar text-primary me-2"></i>
+                                            <div>
+                                                <span class="text-muted small">Sugar Level</span>
+                                                <h6 class="mb-0 fw-bold">Normal - 95 mg/dL</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="icofont-medical-sign text-primary me-2"></i>
+                                            <div>
+                                                <span class="text-muted small">Diabetes</span>
+                                                <h6 class="mb-0 fw-bold">None</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mt-3">
+                                            <span class="text-muted small">Problem</span>
+                                            <p class="mb-2">Patient experiencing mild chest discomfort and occasional shortness of breath during physical activity.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mt-3">
+                                            <span class="text-muted small">Diagnosis</span>
+                                            <p class="mb-2">Mild exercise-induced asthma with possible anxiety component. No signs of cardiac abnormalities.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mt-3">
+                                            <span class="text-muted small">Treatment Plan</span>
+                                            <p class="mb-2">1. Prescribed bronchodilator inhaler for use before exercise<br>2. Gradual increase in physical activity<br>3. Follow-up in 2 weeks<br>4. Stress management techniques</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mt-3">
+                                            <span class="text-muted small">Doctor's Notes</span>
+                                            <p class="mb-2">Patient is cooperative and motivated to improve health. Recommend monitoring symptoms and adjusting treatment as needed.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mt-3">
+                                            <span class="text-muted small">Lab Reports</span>
+                                            <p class="mb-2">Complete Blood Count: Normal<br>Chest X-ray: Clear<br>ECG: Normal sinus rhythm<br>Pulmonary Function Test: Mild obstruction</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mt-3">
+                                            <span class="text-muted small">Past Medication History</span>
+                                            <p class="mb-2">Previous use of antihistamines for seasonal allergies (2019-2020). No other significant medication history.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mt-3">
+                                            <span class="text-muted small">Current Medication</span>
+                                            <p class="mb-2">Albuterol inhaler 90mcg - 2 puffs before exercise as needed<br>Multivitamin - 1 tablet daily</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Daily Task</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3">
+                                    <div class="col">
+                                        <div class="d-flex align-items-center justify-content-between shadow-sm p-3">
+                                            <div class="left-info">
+                                                <span class="text-muted">Breakfast</span>
+                                                <h5 class="fw-bold my-2">390 Kcal</h5>
+                                                <span class="text-muted">Eaten</span>
+                                            </div>
+                                            <div class="right-info">
+                                                <i class="icofont-coffee-mug fs-1 color-danger"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="d-flex align-items-center justify-content-between shadow-sm p-3">
+                                            <div class="left-info">
+                                                <span class="text-muted">Lunch</span>
+                                                <h5 class="fw-bold my-2">390 Kcal</h5>
+                                                <span class="text-muted">Eaten</span>
+                                            </div>
+                                            <div class="right-info">
+                                                <i class="icofont-spoon-and-fork fs-1 color-lightgreen"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="d-flex align-items-center justify-content-between shadow-sm p-3">
+                                            <div class="left-info">
+                                                <span class="text-muted">Dinner</span>
+                                                <h5 class="fw-bold my-2">390 Kcal</h5>
+                                                <span class="text-muted">Recommended</span>
+                                            </div>
+                                            <div class="right-info">
+                                                <i class="icofont-restaurant fs-1 color-lavender-purple"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <h6 class="mb-0 fw-bold ">Healthy Dishes </h6>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#foodadd">Order Food</button>
+                            </div>
+                            <div class="card-body">
+                                <div class="owl-carousel owl-theme owl-carouselthree food-order">
+                                    <div class="item border">
+                                        <i class="icofont-egg-poached text-center mx-auto d-block pt-3 color-lightyellow"></i>
+                                        <h5 class="fw-bold my-3 px-3">Omelette</h5>
+                                        <div class="food-order-btn d-flex justify-content-between my-3 px-3">
+                                            <span class="text-muted">340 Kcal</span>
+                                            <button type="button" class="btn btn-light text-light"><i class="icofont-plus text-primary"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="item border">
+                                        <i class="icofont-fruits text-center mx-auto d-block pt-3 color-lavender-purple"></i>
+                                        <h5 class="fw-bold my-3 px-3">Fruits Dishes</h5>
+                                        <div class="food-order-btn d-flex justify-content-between my-3 px-3">
+                                            <span class="text-muted">640 Kcal</span>
+                                            <button type="button" class="btn btn-light text-light"><i class="icofont-plus text-primary"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="item border">
+                                        <i class="icofont-soup-bowl text-center mx-auto d-block pt-3 color-light-orange"></i>
+                                        <h5 class="fw-bold my-3 px-3">Soup </h5>
+                                        <div class="food-order-btn d-flex justify-content-between my-3 px-3">
+                                            <span class="text-muted">140 Kcal</span>
+                                            <button type="button" class="btn btn-light text-light"><i class="icofont-plus text-primary"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="item border">
+                                        <i class="icofont-chicken text-center mx-auto d-block pt-3 color-careys-pink"></i>
+                                        <h5 class="fw-bold my-3 px-3">Chicken </h5>
+                                        <div class="food-order-btn d-flex justify-content-between my-3 px-3">
+                                            <span class="text-muted">840 Kcal</span>
+                                            <button type="button" class="btn btn-light text-light"><i class="icofont-plus text-primary"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="item border">
+                                        <i class="icofont-juice text-center mx-auto d-block pt-3 color-light-success"></i>
+                                        <h5 class="fw-bold my-3 px-3">Juice </h5>
+                                        <div class="food-order-btn d-flex justify-content-between my-3 px-3">
+                                            <span class="text-muted">180 Kcal</span>
+                                            <button type="button" class="btn btn-light text-light"><i class="icofont-plus text-primary"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Row End -->
+            </div>
+        </div>
+      
+        <!-- Modal Custom Settings-->
+       <div class="modal fade right" id="Settingmodal" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog  modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Custom Settings</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body custom_setting">
+                        <!-- Settings: Color -->
+                        <div class="setting-theme pb-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-color-bucket fs-4 me-2 text-primary"></i>Template Color Settings</h6>
+                            <ul class="list-unstyled row row-cols-3 g-2 choose-skin mb-2 mt-2">
+                                <li data-theme="indigo"><div class="indigo"></div></li>
+                                <li data-theme="tradewind" class="active"><div class="tradewind"></div></li>
+                                <li data-theme="monalisa"><div class="monalisa"></div></li>
+                                <li data-theme="blue"><div class="blue"></div></li>
+                                <li data-theme="cyan"><div class="cyan"></div></li>
+                                <li data-theme="green"><div class="green"></div></li>
+                                <li data-theme="orange"><div class="orange"></div></li>
+                                <li data-theme="blush"><div class="blush"></div></li>
+                                <li data-theme="red"><div class="red"></div></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-gradient py-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-paint fs-4 me-2 text-primary"></i>Sidebar Gradient</h6>
+                            <div class="form-check form-switch gradient-switch pt-2 mb-2">
+                                <input class="form-check-input" type="checkbox" id="CheckGradient">
+                                <label class="form-check-label" for="CheckGradient">Enable Gradient! ( Sidebar )</label>
+                            </div>
+                        </div>
+                        <!-- Settings: Template dynamics -->
+                        <div class="dynamic-block py-3">
+                            <ul class="list-unstyled choose-skin mb-2 mt-1">
+                                <li data-theme="dynamic"><div class="dynamic"><i class="icofont-paint me-2"></i> Click to Dyanmic Setting</div></li>
+                            </ul>
+                            <div class="dt-setting">
+                                <ul class="list-group list-unstyled mt-1">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label>Primary Color</label>
+                                        <button id="primaryColorPicker" class="btn bg-primary avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label>Secondary Color</label>
+                                        <button id="secondaryColorPicker" class="btn bg-secondary avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label class="text-muted">Chart Color 1</label>
+                                        <button id="chartColorPicker1" class="btn chart-color1 avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label class="text-muted">Chart Color 2</label>
+                                        <button id="chartColorPicker2" class="btn chart-color2 avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label class="text-muted">Chart Color 3</label>
+                                        <button id="chartColorPicker3" class="btn chart-color3 avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label class="text-muted">Chart Color 4</label>
+                                        <button id="chartColorPicker4" class="btn chart-color4 avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
+                                        <label class="text-muted">Chart Color 5</label>
+                                        <button id="chartColorPicker5" class="btn chart-color5 avatar xs border-0 rounded-0"></button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Settings: Font -->
+                        <div class="setting-font py-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-font fs-4 me-2 text-primary"></i> Font Settings</h6>
+                            <ul class="list-group font_setting mt-1">
+                                <li class="list-group-item py-1 px-2">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" name="font" id="font-poppins" value="font-poppins">
+                                        <label class="form-check-label" for="font-poppins">
+                                            Poppins Google Font
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item py-1 px-2">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" name="font" id="font-opensans" value="font-opensans" checked="">
+                                        <label class="form-check-label" for="font-opensans">
+                                            Open Sans Google Font
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item py-1 px-2">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" name="font" id="font-montserrat" value="font-montserrat">
+                                        <label class="form-check-label" for="font-montserrat">
+                                            Montserrat Google Font
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item py-1 px-2">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" name="font" id="font-mukta" value="font-mukta">
+                                        <label class="form-check-label" for="font-mukta">
+                                            Mukta Google Font
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Settings: Light/dark -->
+                        <div class="setting-mode py-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-layout fs-4 me-2 text-primary"></i>Contrast Layout</h6>
+                            <ul class="list-group list-unstyled mb-0 mt-1">
+                                <li class="list-group-item d-flex align-items-center py-1 px-2">
+                                    <div class="form-check form-switch theme-switch mb-0">
+                                        <input class="form-check-input" type="checkbox" id="theme-switch">
+                                        <label class="form-check-label" for="theme-switch">Enable Dark Mode!</label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-center py-1 px-2">
+                                    <div class="form-check form-switch theme-high-contrast mb-0">
+                                        <input class="form-check-input" type="checkbox" id="theme-high-contrast">
+                                        <label class="form-check-label" for="theme-high-contrast">Enable High Contrast</label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-center py-1 px-2">
+                                    <div class="form-check form-switch theme-rtl mb-0">
+                                        <input class="form-check-input" type="checkbox" id="theme-rtl">
+                                        <label class="form-check-label" for="theme-rtl">Enable RTL Mode!</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-start">
+                        <button type="button" class="btn btn-white border lift" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary lift">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <!-- Add Document-->
+        <div class="modal fade" id="depadd" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title  fw-bold" id="depaddLabel"> Documents Add</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="deadline-form">
+                        <form>
+                            <div class="row g-3 mb-3">
+                              <div class="col-sm-12">
+                                <label for="depone" class="form-label">Documents Upload</label>
+                                <input type="file" class="form-control" id="depone">
+                              </div>
+                              <div class="col-md-12">
+                                <label  class="form-label">Select Doctor</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Select Doctor</option>
+                                    <option value="1">DR.Peter</option>
+                                    <option value="2">DR.Mary</option>
+                                    <option value="3">DR.Zoe</option>
+                                    <option value="4">DR.Lily</option>
+                                    <option value="5">DR.Adrian</option>
+                                </select>
+                              </div>
+                              <div class="col-md-12">
+                                <label  class="form-label">Select Reson</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Select Doctor</option>
+                                    <option value="1">Visit Surgeon</option>
+                                    <option value="2">MRI Brain</option>
+                                    <option value="3">ECG</option>
+                                    <option value="4">XRAY</option>
+                                    <option value="5">Injection Syringe</option>
+                                    <option value="6">Basic Metabolic</option>
+                                    <option value="7">Heartbeat Check</option>
+                                    <option value="8">Artificial Teeth Set</option>
+                                </select>
+                              </div>
+                              <div class="col-sm-12">
+                                <label for="deptwo145" class="form-label">Documents Upload Date</label>
+                                <input type="date" class="form-control" id="deptwo145">
+                              </div>
+                              <div class="col-sm-12">
+                                <label for="deptwo" class="form-label">Documents Time</label>
+                                <input type="time" class="form-control" id="deptwo">
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label">Documents Note</label>
+                        <textarea class="form-control" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Add Foodorder-->
+        <div class="modal fade" id="foodadd" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title  fw-bold" id="foodaddLabel"> Food Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="deadline-form">
+                        <form>
+                            <div class="row g-3 mb-3">
+                              <div class="col-md-12">
+                                <label  class="form-label">Select Food</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Select Order</option>
+                                    <option value="1">Chicken</option>
+                                    <option value="2">Juice</option>
+                                    <option value="3">Omelette</option>
+                                    <option value="4">Fruits Dishes</option>
+                                    <option value="5">Soup</option>
+                                </select>
+                              </div>
+                              <div class="col-md-12">
+                                <label  class="form-label">Select Quantity</label>
+                                <input type="number" class="form-control" id="deptwo1455">
+                              </div>
+                              <div class="col-sm-12">
+                                <label for="deptwo145" class="form-label">Food Order Date</label>
+                                <input type="date" class="form-control" id="deptwo145">
+                              </div>
+                              <div class="col-sm-12">
+                                <label for="deptwo" class="form-label">Food Order Time</label>
+                                <input type="time" class="form-control" id="deptwo">
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Order</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>  
+  
+</div>
+
+<!-- Jquery Core Js -->
+<script src="assets/bundles/libscripts.bundle.js"></script>
+
+<!-- Plugin Js -->
+<script src="assets/bundles/apexcharts.bundle.js"></script>
+<script src="assets/plugin/owlcarousel/owl.carousel.js"></script>
+
+<!-- Jquery Page Js -->
+<script src="../js/template.js"></script>
+<script src="../js/page/patient-profile.js"></script>
+ 
+</body>
+</html> 
