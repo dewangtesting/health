@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import Sidebar from '@/components/layout/Sidebar'
 import Header from '@/components/layout/Header'
@@ -54,13 +54,7 @@ export default function EditAppointment() {
     symptoms: ''
   })
 
-  useEffect(() => {
-    if (appointmentId) {
-      loadAppointmentAndDoctors()
-    }
-  }, [appointmentId])
-
-  const loadAppointmentAndDoctors = async () => {
+  const loadAppointmentAndDoctors = useCallback(async () => {
     try {
       setLoadingData(true)
       setMessage('')
@@ -96,7 +90,13 @@ export default function EditAppointment() {
     } finally {
       setLoadingData(false)
     }
-  }
+  }, [appointmentId])
+
+  useEffect(() => {
+    if (appointmentId) {
+      loadAppointmentAndDoctors()
+    }
+  }, [appointmentId, loadAppointmentAndDoctors])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
