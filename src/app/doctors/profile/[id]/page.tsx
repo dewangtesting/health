@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import Sidebar from '@/components/layout/Sidebar';
 import Header from '@/components/layout/Header';
 import ProtectedRoute from '@/components/ProtectedRoute';
@@ -177,10 +178,12 @@ export default function DoctorProfile() {
                   <div className="card-body d-flex teacher-fulldeatil">
                     <div className="profile-teacher pe-xl-4 pe-md-2 pe-sm-4 pe-4 text-center w220">
                       <a href="#">
-                        <img 
+                        <Image 
                           src={getAvatarUrl(doctor.user.firstName, doctor.user.lastName)} 
                           alt={`Dr. ${doctor.user.firstName} ${doctor.user.lastName}`}
                           className="avatar xl rounded-circle img-thumbnail shadow-sm"
+                          width={120}
+                          height={120}
                         />
                       </a>
                       <div className="about-info d-flex align-items-center mt-3 justify-content-center flex-column">

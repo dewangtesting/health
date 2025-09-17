@@ -321,7 +321,7 @@ export default function AddPatient() {
                             />
                           </div>
                           <div className="col-md-12">
-                            <label className="form-label">Doctor's Notes</label>
+                            <label className="form-label">Doctor&apos;s Notes</label>
                             <textarea 
                               className="form-control" 
                               rows={3} 
@@ -406,7 +406,7 @@ export default function AddPatient() {
                                     id="noInsurance"
                                   />
                                   <label className="form-check-label" htmlFor="noInsurance">
-                                    No I haven't Insurance
+                                    No I haven&apos;t Insurance
                                   </label>
                                 </div>
                               </div>

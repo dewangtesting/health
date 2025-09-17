@@ -89,7 +89,7 @@ export default function BookAppointment() {
     } finally {
       setLoadingSlots(false)
     }
-  }, [formData.doctorId, formData.date])
+  }, [formData.doctorId, formData.date, getAvailableSlots])
 
   // Load doctors and patients on component mount
   useEffect(() => {
@@ -209,7 +209,7 @@ export default function BookAppointment() {
                         <div className="col-12">
                           <div className="alert alert-info">
                             <i className="icofont-info-circle me-2"></i>
-                            <strong>Patient Information:</strong> Enter the patient's name below. If this is a new patient, a patient record will be automatically created.
+                            <strong>Patient Information:</strong> Enter the patient&apos;s name below. If this is a new patient, a patient record will be automatically created.
                           </div>
                         </div>
                         <div className="col-sm-6">
@@ -392,7 +392,7 @@ export default function BookAppointment() {
               <div className="col-lg-4 col-md-12">
                 <div className="card">
                   <div className="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                    <h6 className="mb-0 fw-bold">Today's Schedule</h6>
+                    <h6 className="mb-0 fw-bold">Today&apos;s Schedule</h6>
                   </div>
                   <div className="card-body">
                     <div className="timeline-item d-flex pb-3">

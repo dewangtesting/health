@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usersAPI } from '@/lib/api'
 import { toast } from 'react-hot-toast'
 import Sidebar from '@/components/layout/Sidebar'
@@ -156,7 +157,7 @@ export default function UserViewPage() {
                     <div className="card-body text-center">
                       <div className="avatar xl rounded-circle mx-auto mb-3">
                         {user.avatar ? (
-                          <img src={user.avatar} alt={user.firstName} className="avatar xl rounded-circle" />
+                          <Image src={user.avatar} alt={user.firstName} className="avatar xl rounded-circle" width={96} height={96} />
                         ) : (
                           <div className="avatar xl rounded-circle bg-primary text-white d-flex align-items-center justify-content-center">
                             <span style={{ fontSize: '2rem' }}>

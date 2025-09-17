@@ -1,5 +1,6 @@
 import Sidebar from '@/components/layout/Sidebar'
 import Header from '@/components/layout/Header'
+import Image from 'next/image'
 
 export default function Dashboard() {
   return (
@@ -47,7 +48,7 @@ export default function Dashboard() {
                 <div className="card">
                   <div className="card-body">
                     <i className="icofont-calendar fa-3x text-warning"></i>
-                    <h6 className="mt-3 mb-0 fw-bold small-14">Today's Appointments</h6>
+                    <h6 className="mt-3 mb-0 fw-bold small-14">Today&apos;s Appointments</h6>
                     <span className="text-big">89</span>
                     <span className="d-block text-warning small">15 pending confirmations</span>
                   </div>
@@ -90,7 +91,7 @@ export default function Dashboard() {
                               <tr>
                                 <td>
                                   <div className="d-flex align-items-center">
-                                    <img className="avatar rounded-circle" src="/assets/images/xs/avatar1.jpg" alt="" />
+                                    <Image className="avatar rounded-circle" src="/assets/images/xs/avatar1.jpg" alt="Patient Avatar" width={40} height={40} />
                                     <div className="ms-2">
                                       <h6 className="mb-0">John Smith</h6>
                                       <span className="text-muted">ID: #P001</span>
@@ -107,7 +108,7 @@ export default function Dashboard() {
                               <tr>
                                 <td>
                                   <div className="d-flex align-items-center">
-                                    <img className="avatar rounded-circle" src="/assets/images/xs/avatar2.jpg" alt="" />
+                                    <Image className="avatar rounded-circle" src="/assets/images/xs/avatar2.jpg" alt="Patient Avatar" width={40} height={40} />
                                     <div className="ms-2">
                                       <h6 className="mb-0">Emma Johnson</h6>
                                       <span className="text-muted">ID: #P002</span>
@@ -124,7 +125,7 @@ export default function Dashboard() {
                               <tr>
                                 <td>
                                   <div className="d-flex align-items-center">
-                                    <img className="avatar rounded-circle" src="/assets/images/xs/avatar3.jpg" alt="" />
+                                    <Image className="avatar rounded-circle" src="/assets/images/xs/avatar3.jpg" alt="Patient Avatar" width={40} height={40} />
                                     <div className="ms-2">
                                       <h6 className="mb-0">Robert Davis</h6>
                                       <span className="text-muted">ID: #P003</span>

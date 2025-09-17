@@ -275,5 +275,25 @@ export const mockDashboardStats = {
   todayAppointments: 8,
   pendingAppointments: 15,
   completedAppointments: 67,
-  cancelledAppointments: 7
+  cancelledAppointments: 7,
+  recentActivities: [
+    {
+      id: 'act-001',
+      type: 'APPOINTMENT',
+      message: 'New appointment scheduled for John Smith with Dr. Wilson',
+      timestamp: new Date(Date.now() + (5.5 * 60 * 60 * 1000)).toISOString()
+    },
+    {
+      id: 'act-002',
+      type: 'MEDICINE',
+      message: 'Metformin stock updated to 300 units',
+      timestamp: new Date(Date.now() + (5.5 * 60 * 60 * 1000)).toISOString()
+    },
+    {
+      id: 'act-003',
+      type: 'PATIENT',
+      message: 'New patient registered: Emma Johnson',
+      timestamp: new Date(Date.now() + (5.5 * 60 * 60 * 1000)).toISOString()
+    }
+  ]
 };
