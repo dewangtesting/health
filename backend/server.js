@@ -32,22 +32,31 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // CORS configuration
+const allowedOrigins = (process.env.CORS_ORIGINS || '').split(',').map(s => s.trim()).filter(Boolean)
+const defaultOrigins = [
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  'http://localhost:3001',
+  'http://127.0.0.1:3001',
+  'http://localhost:8888',
+  'http://127.0.0.1:8888'
+]
+
 const corsOptions = {
-  origin: [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-    'http://localhost:3001',
-    'http://127.0.0.1:3001',
-    'http://localhost:8888',
-    'http://127.0.0.1:8888',
-    'http://localhost:5173',
-    'http://127.0.0.1:5173'
-  ],
+  origin: function (origin, callback) {
+    // Allow non-browser requests (like curl/postman) which may have no origin
+    if (!origin) return callback(null, true)
+    const list = allowedOrigins.length ? allowedOrigins : defaultOrigins
+    if (list.includes(origin)) {
+      return callback(null, true)
+    }
+    return callback(new Error(`CORS blocked for origin: ${origin}`))
+  },
   credentials: true,
   optionsSuccessStatus: 200,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-};
+}
 app.use(cors(corsOptions));
 
 // Logging
