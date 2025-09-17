@@ -6,6 +6,9 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  corePlugins: {
+    preflight: false, // Prevent Tailwind from resetting element styles (works better with Bootstrap/theme CSS)
+  },
   theme: {
     extend: {
       backgroundImage: {

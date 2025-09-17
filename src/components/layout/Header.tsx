@@ -231,6 +231,14 @@ export default function Header() {
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#mainHeader"
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                const sidebar = document.querySelector('.sidebar') as HTMLElement | null
+                if (sidebar) {
+                  sidebar.classList.toggle('show')
+                }
+              }
+            }}
           >
             <span className="fa fa-bars"></span>
           </button>
