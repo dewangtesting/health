@@ -23,6 +23,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        {/* Ensure theme CSS loads early from public/assets */}
+        <link rel="stylesheet" href="/assets/css/ihealth.style.min.css" />
+        <link rel="stylesheet" href="/assets/fonts/icofont/icofont.min.css" />
       </head>
       <body className={inter.variable}>
         <AuthProvider>

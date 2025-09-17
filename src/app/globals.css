@@ -1,10 +1,8 @@
+/* I-Health theme and Icofont are linked in <head> via layout.tsx */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import I-Health specific styles */
-@import url('/assets/css/ihealth.style.min.css');
-@import url('/assets/fonts/icofont/icofont.min.css');
 
 /* Override Tailwind with I-Health theme */
 body {
@@ -189,18 +187,12 @@ body {
   flex-direction: column;
 }
 
-/* Responsive adjustments */
+/* Sidebar always visible on all screen sizes */
 @media (max-width: 991.98px) {
   .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    transform: none !important;
   }
-  
   .main {
-    margin-left: 0;
-  }
-  
-  .sidebar.show {
-    transform: translateX(0);
+    margin-left: 260px !important;
   }
 }
