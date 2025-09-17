@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import Sidebar from '@/components/layout/Sidebar'
 import Header from '@/components/layout/Header'
 import ProtectedRoute from '@/components/ProtectedRoute'
@@ -257,10 +258,12 @@ export default function Appointments() {
                               <tr key={appointment.id}>
                                 <td>
                                   <div className="d-flex align-items-center">
-                                    <img 
+                                    <Image 
                                       className="avatar rounded-circle" 
                                       src="/assets/images/xs/avatar1.jpg" 
-                                      alt="Patient Avatar" 
+                                      alt="Patient Avatar"
+                                      width={40}
+                                      height={40}
                                     />
                                     <div className="ms-2">
                                       <h6 className="mb-0">

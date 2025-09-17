@@ -49,9 +49,10 @@ export default function Medicines() {
     }
   }
 
-  const getStockBadgeClass = (quantity: number) => {
-    if (quantity === 0) return 'bg-danger'
-    if (quantity <= 10) return 'bg-warning'
+  const getStockBadgeClass = (quantity?: number) => {
+    const q = quantity ?? 0
+    if (q === 0) return 'bg-danger'
+    if (q <= 10) return 'bg-warning'
     return 'bg-success'
   }
 
@@ -174,7 +175,7 @@ export default function Medicines() {
                                 <td>${medicine.price.toFixed(2)}</td>
                                 <td>
                                   <span className={`badge ${getStockBadgeClass(medicine.stockQuantity)}`}>
-                                    {medicine.stockQuantity}
+                                    {medicine.stockQuantity ?? 0}
                                   </span>
                                 </td>
                                 <td>
@@ -194,7 +195,7 @@ export default function Medicines() {
                                 </td>
                                 <td>
                                   <span className={`badge ${getStockBadgeClass(medicine.stockQuantity)}`}>
-                                    {getStockStatus(medicine.stockQuantity)}
+                                    {getStockStatus(medicine.stockQuantity ?? 0)}
                                   </span>
                                 </td>
                                 <td>

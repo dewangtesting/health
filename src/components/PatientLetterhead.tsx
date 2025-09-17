@@ -558,7 +558,7 @@ export default function PatientLetterhead({ patient }: PatientLetterheadProps) {
         <>
           <div className="section-header">
             <i className="icofont-doctor"></i>
-            Doctor's Notes & Observations
+            Doctor&apos;s Notes & Observations
           </div>
           <div className="medical-content">{patient.notes}</div>
         </>

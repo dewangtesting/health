@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Sidebar from '@/components/layout/Sidebar'
 import Header from '@/components/layout/Header'
 import ProtectedRoute from '@/components/ProtectedRoute'
@@ -153,10 +154,12 @@ export default function Doctors() {
                     <div className="card teacher-card">
                       <div className="card-body d-flex flex-column">
                         <div className="profile-av mx-auto text-center w220">
-                          <img 
+                          <Image 
                             src={getAvatarUrl(doctor.user.firstName, doctor.user.lastName)} 
                             alt={`Dr. ${doctor.user.firstName} ${doctor.user.lastName}`} 
                             className="avatar xl rounded-circle img-thumbnail shadow-sm"
+                            width={120}
+                            height={120}
                           />
                           <div className="about-info d-flex align-items-center mt-3 justify-content-center">
                             <div className="followers rounded-circle me-3">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AuthProvider } from '@/contexts/AuthContext';
 import "./globals.css";
+import Script from 'next/script';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,11 +23,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="/assets/css/ihealth.style.min.css" />
-        <link rel="stylesheet" href="/assets/fonts/icofont/icofont.min.css" />
-        <script 
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        ></script>
       </head>
       <body className={inter.variable}>
         <AuthProvider>
@@ -34,6 +30,10 @@ export default function RootLayout({
             {children}
           </div>
         </AuthProvider>
+        <Script 
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          strategy="beforeInteractive"
+        />
       </body>
     </html>
   )

@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { z } from 'zod'
-import toast from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 import Sidebar from '@/components/layout/Sidebar'
 import Header from '@/components/layout/Header'
 import ProtectedRoute from '@/components/ProtectedRoute'
@@ -311,10 +313,12 @@ export default function DoctorProfile() {
                     <div className="col-12">
                       <div className="card mb-3">
                         <div className="card-body text-center">
-                          <img 
+                          <Image 
                             src={getAvatarUrl(doctorData.user.firstName, doctorData.user.lastName)} 
                             alt={`Dr. ${doctorData.user.firstName} ${doctorData.user.lastName}`} 
                             className="avatar xl rounded-circle img-thumbnail shadow-sm mb-3"
+                            width={120}
+                            height={120}
                           />
                           <h4 className="mb-1">Dr. {doctorData.user.firstName} {doctorData.user.lastName}</h4>
                           <p className="text-muted mb-2">{doctorData.specialization}</p>
@@ -598,7 +602,7 @@ export default function DoctorProfile() {
                               <div className="col-12">
                                 <small className="text-muted">
                                   <i className="icofont-info-circle me-1"></i>
-                                  Leave password fields empty if you don't want to change your password.
+                                  Leave password fields empty if you don&apos;t want to change your password.
                                 </small>
                               </div>
                             </div>

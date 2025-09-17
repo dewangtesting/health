@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { useAuth } from '@/contexts/AuthContext';
 import Link from 'next/link';
 
@@ -51,7 +52,7 @@ export default function LoginPage() {
                     <h2 className="color-900 text-center">I-Health, We aim to make your life better</h2>
                   </div>
                   <div className="">
-                    <img src="/assets/images/login-img.svg" alt="login-img" />
+                    <Image src="/assets/images/login-img.svg" alt="login-img" width={400} height={300} />
                   </div>
                 </div>
               </div>
@@ -96,7 +97,7 @@ export default function LoginPage() {
                     <div className="col-12 text-center mb-4">
                       <a className="btn btn-lg btn-outline-secondary btn-block" href="#">
                         <span className="d-flex justify-content-center align-items-center">
-                          <img className="avatar xs me-2" src="/assets/images/google.svg" alt="Google" />
+                          <Image className="avatar xs me-2" src="/assets/images/google.svg" alt="Google" width={20} height={20} />
                           Sign in with Google
                         </span>
                       </a>
@@ -184,7 +185,7 @@ export default function LoginPage() {
 
                     {/* Sign Up Link */}
                     <div className="col-12 text-center mt-4">
-                      <span>Don't have an account yet? <Link href="/auth/register">Sign up here</Link></span>
+                      <span>Don&apos;t have an account yet? <Link href="/auth/register">Sign up here</Link></span>
                     </div>
                   </form>
                 </div>

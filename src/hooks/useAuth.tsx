@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+import { useState, useEffect, useCallback, createContext, useContext, ReactNode } from 'react';
 import { authAPI } from '@/lib/api';
 
 interface User {
@@ -31,24 +31,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [token, setToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Check for stored auth data on mount
-    if (typeof window !== 'undefined') {
-      const storedToken = localStorage.getItem('token');
-      const storedUser = localStorage.getItem('user');
+  
 
-      if (storedToken && storedUser) {
-        setToken(storedToken);
-        setUser(JSON.parse(storedUser));
-        // Verify token is still valid
-        verifyToken();
-      } else {
-        setLoading(false);
-      }
+  const logout = useCallback(() => {
+    setUser(null);
+    setToken(null);
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
     }
   }, []);
 
-  const verifyToken = async () => {
+  const verifyToken = useCallback(async () => {
     try {
       const response = await authAPI.getProfile();
       setUser(response.user);
@@ -58,7 +52,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [logout]);
+
+  // Initialize auth state on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedToken = localStorage.getItem('token');
+      const storedUser = localStorage.getItem('user');
+
+      if (storedToken && storedUser) {
+        setToken(storedToken);
+        setUser(JSON.parse(storedUser));
+        verifyToken();
+      } else {
+        setLoading(false);
+      }
+    }
+  }, [verifyToken]);
 
   const login = async (email: string, password: string) => {
     try {
@@ -92,14 +102,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const logout = () => {
-    setUser(null);
-    setToken(null);
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-    }
-  };
+  // logout is defined above with useCallback
 
   const value = {
     user,
@@ -121,7 +124,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    // Return a safe default during prerender or when provider is not yet mounted
+    return {
+      user: null,
+      token: null,
+      login: async () => {},
+      register: async () => {},
+      logout: () => {},
+      loading: false,
+      isAuthenticated: false,
+    } as const;
   }
   return context;
 }

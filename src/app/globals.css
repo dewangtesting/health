@@ -4,6 +4,7 @@
 
 /* Import I-Health specific styles */
 @import url('/assets/css/ihealth.style.min.css');
+@import url('/assets/fonts/icofont/icofont.min.css');
 
 /* Override Tailwind with I-Health theme */
 body {

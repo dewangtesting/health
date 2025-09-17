@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usersAPI } from '@/lib/api'
 import { toast } from 'react-hot-toast'
 import Sidebar from '@/components/layout/Sidebar'
@@ -175,7 +176,7 @@ export default function UsersPage() {
                                     <div className="d-flex align-items-center">
                                       <div className="avatar rounded-circle me-3">
                                         {user.avatar ? (
-                                          <img src={user.avatar} alt={user.firstName} className="avatar rounded-circle" />
+                                          <Image src={user.avatar} alt={user.firstName} className="avatar rounded-circle" width={48} height={48} />
                                         ) : (
                                           <div className="avatar rounded-circle bg-primary text-white d-flex align-items-center justify-content-center">
                                             {user.firstName?.charAt(0)}{user.lastName?.charAt(0)}
